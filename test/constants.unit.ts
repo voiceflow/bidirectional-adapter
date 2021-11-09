@@ -1,7 +1,15 @@
 import { expect } from 'chai';
 
+import { createAdapter } from '@/.';
+
 describe('bidirectional-adapter', () => {
-  it('template', () => {
-    expect(true).to.be.true;
+  it('converts between two simple data types', () => {
+    const stringNumberAdapter = createAdapter<string, number>(
+      (stringValue) => parseInt(stringValue, 10),
+      (numericValue) => String(numericValue)
+    );
+
+    expect(stringNumberAdapter.fromDB('123')).to.eq(123);
+    expect(stringNumberAdapter.toDB(123)).to.eq('123');
   });
 });
