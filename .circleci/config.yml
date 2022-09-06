@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  vfcommon: voiceflow/common@0.0.187
+  vfcommon: voiceflow/common@0.4.4
 
 jobs:
   build-and-test:
