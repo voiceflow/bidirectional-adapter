@@ -148,7 +148,7 @@ export const createSmartMultiAdapter = <DBModel, Model, FromDBArgs extends any[]
   fromDB: (dbModel: Partial<DBModel>, ...args: FromDBArgs) => Partial<Model>,
   toDB: (model: Partial<Model>, ...args: ToDBArgs) => Partial<DBModel>,
   options: AdapterOptions = {}
-): MultiAdapter<DBModel, Model, FromDBArgs, ToDBArgs> => ({
+): SmartMultiAdapter<DBModel, Model, FromDBArgs, ToDBArgs> => ({
   ...createSmartSimpleAdapter<DBModel, Model, FromDBArgs, ToDBArgs>(fromDB, toDB, options),
 
   mapToDB: mapToDBFactory(toDB, options),
