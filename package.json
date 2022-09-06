@@ -12,34 +12,34 @@
     }
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@istanbuljs/nyc-config-typescript": "^1.0.1",
-    "@types/chai": "^4.2.15",
-    "@types/mocha": "^9.0.0",
-    "@voiceflow/commitlint-config": "1.1.0",
-    "@voiceflow/eslint-config": "3.4.0",
-    "@voiceflow/git-branch-check": "1.2.0",
-    "@voiceflow/prettier-config": "1.0.5",
-    "@voiceflow/tsconfig": "1.1.0",
+    "@commitlint/cli": "11.0.0",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^9.1.1",
+    "@voiceflow/commitlint-config": "2.0.0",
+    "@voiceflow/eslint-config": "6.1.0",
+    "@voiceflow/git-branch-check": "1.4.0",
+    "@voiceflow/prettier-config": "1.2.1",
+    "@voiceflow/tsconfig": "1.4.8",
     "@zerollup/ts-transform-paths": "^1.7.18",
-    "chai": "^4.3.0",
-    "commitizen": "^4.2.3",
+    "chai": "^4.3.6",
+    "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
-    "depcheck": "^1.4.2",
-    "eslint": "^7.20.0",
+    "depcheck": "^1.4.3",
+    "eslint": "^8.23.0",
     "eslint-output": "^3.0.1",
     "fixpack": "^4.0.0",
-    "husky": "^4.3.8",
+    "husky": "^8.0.1",
     "istanbul": "^0.4.5",
-    "lint-staged": "^10.5.4",
-    "mocha": "^8.3.0",
+    "lint-staged": "^13.0.3",
+    "mocha": "^10.0.0",
     "nyc": "^15.1.0",
-    "prettier": "^2.2.1",
-    "source-map-support": "^0.5.19",
-    "ts-mocha": "^8.0.0",
-    "ts-node": "^9.1.1",
-    "ttypescript": "^1.5.12",
-    "typescript": "^4.4.2"
+    "prettier": "^2.7.1",
+    "source-map-support": "^0.5.21",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.9.1",
+    "ttypescript": "^1.5.13",
+    "typescript": "^4.8.2"
   },
   "files": [
     "build/"
@@ -52,14 +52,17 @@
     "voiceflow"
   ],
   "license": "ISC",
-  "main": "build/index.js",
+  "main": "build/cjs/index.js",
+  "module": "build/esm/index.js",
   "prettier": "@voiceflow/prettier-config",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/voiceflow/bidirectional-adapter.git"
   },
   "scripts": {
-    "build": "yarn clean && ttsc --project ./tsconfig.build.json --declaration",
+    "build": "yarn clean && yarn build:cjs && yarn build:esm",
+    "build:cjs": "ttsc --build tsconfig.build.json",
+    "build:esm": "ttsc --build tsconfig.esm.json",
     "clean": "rimraf build",
     "commit": "cz",
     "eslint-output": "eslint-output",
@@ -75,5 +78,5 @@
     "test:single": "NODE_ENV=test ts-mocha --paths --config ./config/test/.mocharc.yml",
     "test:unit": "NODE_ENV=test nyc --report-dir=nyc_coverage_unit ts-mocha --paths --config ./config/test/.mocharc.yml 'test/**/*.unit.ts'"
   },
-  "types": "build/index.d.ts"
+  "types": "build/cjs/index.d.ts"
 }
