@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 
-import { createAdapter } from '@/.';
+import { createMultiAdapter } from '@/.';
 
 describe('bidirectional-adapter', () => {
   it('converts between two simple data types', () => {
-    const stringNumberAdapter = createAdapter<string, number>(
+    const stringNumberAdapter = createMultiAdapter<string, number>(
       (stringValue) => parseInt(stringValue, 10),
       (numericValue) => String(numericValue)
     );
