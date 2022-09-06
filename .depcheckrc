@@ -19,6 +19,7 @@
     "fixpack",
     "istanbul",
     "husky",
+    "source-map-support",
     "lint-staged"
   ]
 }
