@@ -17,7 +17,7 @@
     "@types/chai": "^4.3.3",
     "@types/mocha": "^9.1.1",
     "@voiceflow/commitlint-config": "2.0.0",
-    "@voiceflow/eslint-config": "6.1.0",
+    "@voiceflow/eslint-config": "7.10.0",
     "@voiceflow/git-branch-check": "1.4.0",
     "@voiceflow/prettier-config": "1.2.1",
     "@voiceflow/tsconfig": "1.4.8",
