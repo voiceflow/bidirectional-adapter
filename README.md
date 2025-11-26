@@ -1,3 +1,6 @@
+> [!CAUTION]
+> Update Nov 26, 2025: This codebase has moved to [voiceflow/oss](https://github.com/voiceflow/oss/tree/master/libs/bidirectional-adapter).
+
 # Bi-Directional Adapter
 
 [![npm version](https://img.shields.io/npm/v/bidirectional-adapter.svg?style=flat-square)](https://www.npmjs.com/package/bidirectional-adapter)
